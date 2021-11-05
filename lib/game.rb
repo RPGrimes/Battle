@@ -1,8 +1,16 @@
 require_relative 'player'
 
 class Game
-    attr_reader :turn, :players, :victim
+    attr_reader :turn, :players, :victim, :game
     
+  def self.create(player_1, player_2)
+    @game = Game.new(player_1, player_2)
+  end
+  
+  def self.instance
+    @game
+  end
+
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
     @turn = player_1
