@@ -1,5 +1,8 @@
-require 'sinatra/base'
-require "sinatra/reloader" 
+require "sinatra/base"
+require "sinatra/reloader"
+require './lib/game'
+require './lib/player'
+
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -7,29 +10,29 @@ class Battle < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
-    erb :index
-  end
+get '/' do 
+  erb :index
+end 
 
-  post '/names' do
-    # $player_one = Player.new(params[:player_one_name])
-    # $player_two = Player.new(params[:player_two_name])
-    $game = Game.new(Player.new(params[:player_one_name]), Player.new(params[:player_two_name]))
-    redirect '/play'
-  end
-
-  get '/play' do
-    @player_one_name = $game.player_one.name
-    @player_two_name = $game.player_two.name
-    erb :play
-  end
-
-  get '/attack' do
-    @player_one = $game.player_one
-    @player_two = $game.player_two
-    @player_one_name = $game.player_one.name
-    @player_two_name = $game.player_two.name
-    erb :attack
-  end
-
+post '/names' do
+  player_1 = Player.new(params[:player_1_name])
+  player_2 = Player.new(params[:player_2_name])
+  $game = Game.new(player_1, player_2)
+  redirect '/play'
 end
+
+get '/play' do 
+  @game = $game
+  erb :play
+end 
+
+get '/attack' do
+  @game = $game 
+  @game.attack(@game.player_2)
+  @game.switch_turns(@game.player_2)
+  erb :attack
+end
+
+run! if app_file == $0
+
+end 

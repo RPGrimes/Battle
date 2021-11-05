@@ -1,18 +1,15 @@
-feature 'player 1 attack player 2' do
-  scenario 'player 1 attack player 2' do
+feature 'Attack' do
+  scenario 'attack Player 2' do
     sign_in_and_play
-    # save_and_open_page
-    click_link('Attack')
-    expect(page).to have_content 'Ryan attacked Caeser'
-  end
-end
+    click_link 'Attack'
+    expect(page).to have_content 'Ben attacked Ryan'
+  end 
+end 
 
-feature 'attack reduces HP by 10' do
-  scenario 'player 1 attacks player 2, player 2 HP -10' do
+feature 'Attacking' do 
+  scenario 'attacking reduces health' do 
     sign_in_and_play
-    # save_and_open_page
     click_link('Attack')
-    expect(page).not_to have_content 'Caeser has 100HP'
-    expect(page).to have_content 'Caeser has 90HP'
-  end
+    expect(page).to have_content 'Ryan: 50hp'
+  end 
 end

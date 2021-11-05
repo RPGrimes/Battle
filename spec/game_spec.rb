@@ -1,24 +1,27 @@
 require 'game'
 
-describe 'Game' do
-  subject(:game) { Game.new(player_one, player_two) }
-  let(:player_one) { double :player }
-  let(:player_two) { double :player }
-
-  describe '#initialize' do
-    it 'accepts player one' do
-      expect(game.player_one).to eq player_one
-    end
-
-    it 'accepts player two' do
-      expect(game.player_two).to eq player_two
-    end
-  end
+describe Game do
+  subject(:game) {Game.new(player_1, player_2)}
+  let(:player_1) {double :player}
+  let(:player_2) {double :player}
   
   describe '#attack' do
-    it 'can attack a player' do
-      expect(player_two).to receive(:lose_hp)
-      game.attack(player_two)
-    end
+  it 'reduces health by 10hp when player attacks' do
+    expect(player_2).to receive(:reduce_health)
+    game.attack(player_2)  
   end
+ end
+end 
+
+feature 'Player turn' do 
+  scenario 'players switch turns' do 
+    sign_in_and_play
+    expect(page).to have_content "Ben's turn"
+  end 
+
+  scenario 'players switch turns' do 
+    sign_in_and_play
+    click_link('Attack')
+    expect(page).to have_content "Ryan's turn"
+  end 
 end

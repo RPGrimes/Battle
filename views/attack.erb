@@ -1,2 +1,5 @@
-<%= @player_one_name %> attacked <%= @player_two_name %>
-<%= @player_two_name %> has <%= Game.new.attack(@player_two) %>HP
+<%= @game.player_1.name %> attacked <%= @game.player_2.name %>
+
+<%= @game.player_2.name %>: <%=@game.player_2.hp%>hp
+
+<%=@game.turn.name%>'s turn

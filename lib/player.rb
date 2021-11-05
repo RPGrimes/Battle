@@ -1,14 +1,13 @@
-class Player 
+class Player
   attr_reader :name, :hp
+  DEFAULT_HP = 60
 
-  DEFAULT_HP = 100
-
-  def initialize(name = 'Player', hp = DEFAULT_HP)
+  def initialize(name, hp = DEFAULT_HP)
     @name = name
     @hp = hp
   end
 
-  def lose_hp
+  def reduce_health
     @hp -= 10
   end
 end
