@@ -8,6 +8,8 @@ Day 2 partner --> [Madihah](https://github.com/DoodleDeBug) - Challenges 13 to 1
 
 Day 3 partner --> [Caeser Ibrahim](https://github.com/caeserlondon) - Challenges 19 to 26 completed. We took turns driving and navigating today, although we pushed exclusively from my machine due to a few technical issues Caeser was experiencing.
 
+Day 4 partner --> [Ben Dowsett](https://github.com/bdowsett) - Challenges 20 to 27 completed. We paired using the driver-navigator technique to push-pull commits to our own machines as we took turns. We paired well together as we took time to discuss and plan our code before implementing it throughout.
+
 ## About the task
 
 This week's task has the purpose of developing our skills doing the following:
@@ -129,3 +131,13 @@ This week's task has the purpose of developing our skills doing the following:
 #### Challenge 26
 **Learning Objectives covered**
 - Refactor the Model layer :white_check_mark:
+
+#### Challenge 27
+**Learning Objectives covered**
+- Refactor a controller to make it 'skinny' :white_check_mark:
+
+#### Challenge 28
+**Learning Objectives covered**
+- Write and pass a feature test using Capybara :white_check_mark:
+- Refactor the Model layer :white_check_mark:
+- Refactor a controller to make it 'skinny' :white_check_mark:
